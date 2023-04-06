@@ -1,7 +1,7 @@
 import pandas as pd
 import pickle
 import streamlit as st
-#import plotly.express as px
+import plotly.express as px
 
 
 st.set_page_config(
@@ -205,12 +205,12 @@ if upload is not None:
             st.subheader('Prediction Probability :')
             predict_proba=pd.DataFrame(predict_proba,columns=['Bad Revenue','Good Revenue'])
             st.write(predict_proba)
-        #with col6:
-            #if check:
-                #st.subheader('Predicted Class Distribution :')
-                #fig=px.bar(predict,x=list(predict['REVENUE'].sort_values().unique()),y=predict['REVENUE'].value_counts().sort_values(),
-                           #template='plotly_white',title='Class Spit',color=['1','2'])
-                #st.plotly_chart(fig)
+        with col6:
+            if check:
+                st.subheader('Predicted Class Distribution :')
+                fig=px.bar(predict,x=list(predict['REVENUE'].sort_values().unique()),y=predict['REVENUE'].value_counts().sort_values(),
+                           template='plotly_white',title='Class Spit',color=['1','2'])
+                st.plotly_chart(fig)
 
 
         st.write('# Predicted Dataset :')
